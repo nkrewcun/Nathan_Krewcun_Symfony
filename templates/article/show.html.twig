@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }} - Le Progrès{% endblock %}
+
+{% block body %}
+    <article id="singleArticle" class="card mb-3 mx-auto bg-transparent border-0">
+        <h1 class="card-header display-4 bg-transparent border-0">{{ article.title }}</h1>
+        <div class="card-body py-2">
+            <a href="{{ path('article_index') }}" class="btn btn-secondary">Retour</a>
+            {% if app.user %}
+            <a href="{{ path('article_edit', {'id' : article.id }) }}" class="btn btn-warning">Modifier</a>
+                <a href="{{ path('article_delete', {'id' : article.id }) }}" class="btn btn-danger" onclick="return confirm('Êtes vous sûr(e) de vouloir supprimer cet article ?');">Supprimer</a>
+            {% endif %}
+        </div>
+        <div class="text-muted my-1">
+            Publié le {{ article.publicationDate | format_datetime(locale='fr') }}.
+            {% if article.lastModificationDate %}
+                Mis à jour le {{ article.lastModificationDate | format_datetime(locale='fr') }}.
+            {% endif %}
+        </div>
+        <img src="{{ asset('articles/pictures/' ~ article.picture) }}" class="card-img-top" id="singleArticleImage"
+             alt="{{ article.title }}">
+        <div class="card-body">
+            <p class="card-text">{{ article.description }}</p>
+        </div>
+
+    </article>
+{% endblock %}

@@ -1,0 +1,38 @@
+#articlesContainer,
+#singleArticle {
+    max-width: 1080px;
+}
+
+#singleArticleImage,
+.articlesImages {
+    height: 400px;
+    object-fit: cover;
+}
+
+.text-muted {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.deleteForm {
+    display: inline;
+}
+
+.form-article {
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-control-file {
+    margin-bottom: .5rem;
+}

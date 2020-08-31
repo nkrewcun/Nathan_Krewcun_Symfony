@@ -1,0 +1,35 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+        <a class="navbar-brand" href="{{ path('article_index') }}">
+            Le Progrès
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ path('article_index') }}" class="nav-link" role="button">Accueil</a>
+                </li>
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a href="{{ path('article_new') }}" class="nav-link" role="button">Ajouter un article</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('article_admin') }}" class="nav-link" role="button">Administration des articles</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                {% if app.user %}
+                    <li class="nav-item mr-3"><span class="navbar-text">{{ app.user.firstname }} {{ app.user.lastname }}</span></li>
+                    <li class="nav-item"><a href="{{ path('app_logout') }}" class="nav-link">Déconnexion</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{{ path('app_login') }}" class="nav-link">Connexion</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
